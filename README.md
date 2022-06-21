@@ -13,3 +13,9 @@ Once you use sudo and run the script the following messages displaying 'done' af
 Connect Led's Positive side to VisionFive Pin number 40 and Negative to the Pin Number 39.
 If you are going to use Blue led like mine then there is no need to attach extra resistor but if you are using any other led the please use appropriate resistor.
 Normal values like 220ohm 330 ohm can be used. But it can very according to your led.
+
+
+
+
+https://user-images.githubusercontent.com/70629275/174902821-ca7bc81c-ccdd-4776-91f8-2ed8bce07e0d.mp4
+
