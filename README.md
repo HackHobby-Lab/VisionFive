@@ -19,9 +19,40 @@ Normal values like 220ohm 330 ohm can be used. But it can very according to your
 
 https://user-images.githubusercontent.com/70629275/174902821-ca7bc81c-ccdd-4776-91f8-2ed8bce07e0d.mp4
 
+# My recommendation is to start from here with these libraries
+
+## Installing_New_Libraries
+
+First, install Gpiod library using the following command:
+
+`$ sudo pip install gpiod`
+
+Or you can try:
+
+`$ sudo dnf install gpiod`
+
+Then you need to install libgpiod library. Here this thing takes us on two ways path. We have to take both of them :)
+
+Firstly after gpiod is installed, we need to install the python3-libgpiod library. This was designed for python to access and manage gpios. So let's install it by using the following command.
+
+`$ sudo dnf install python3-libgpiod`
+
+After it is installed now we need to do the following commands "gpioinfo" , "gpiodetect" to get info about our gpio but for that, we need to install another library. So install it by:
+
+`$ sudo dnf install libgpiod-utils`
+
+Now after this we can check it by the following command:
+
+`$ sudo gpiodetect`
+
+This command should show you the output with different gpiochips available on the board. More about that was already discussed.
+
+Note: _In my case, I have to install everything in this sequence otherwise it was giving me an error. I don't know why the hell but it was. So I had to uninstall all the libraries first and then install them in this sequence, or at least the solution that I figured out._
+
+## And now you can blink the led and do everything with gpios
 
 
-Links to Follow for More Information and contacts:
+## For More Information & contact
 
 https://www.instagram.com/hackhobby_lab/
 
@@ -33,3 +64,4 @@ https://forum.rvspace.org/
 
 https://youtu.be/W10YKBu7tG8
 
+https://www.hackster.io/hamzah2/interfacing-push-button-with-visionfive-6b8c65
