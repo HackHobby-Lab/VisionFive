@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Home Automation</title>
+  <link rel="icon" href="/static/icon2.png" type="image/icon type">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"  href="/static/style.css"> 
+</head>
+<body>
+<center>
+<div id="HomeAutomation"><strong>HOME AUTOMATION</strong>
+</div>
+
+<!-- Page content -->
+
+<div   class= "trayon"  >ON
+               
+</br><button onClick="LIGHTs()" id="LIGHTs">LIGHT</button></br>
+	<br><button onClick="DOORs()" id="DOORs">DOOR</button></br>
+	<br><button onClick="FANs()" id="FANs">FAN</button></br>
+	<br><button onClick="ACs()" id="ACs">TV</button></br>
+	<br><button onClick="DSKTOs()" id="DSKTOs">DSKTOP</button>
+        
+       </div> 
+
+
+
+
+<div class="trayoff"> OFF
+        
+ <br><button onClick="LIGHTsoff()" id="LIGHTsoff">LIGHT</button></br>
+  <br><button onClick="DOORsoff()"id="DOORsoff">DOOR</button></br>
+  <br><button onClick="FANsoff()" id="FANsoff">FAN</button></br>
+  <br><button onClick="ACsoff()" id="ACsoff">TV</button></br>
+  <br><button onClick="DSKTOsoff()" id="DSKTOsoff">DSKTOP</button>
+  </div>
+
+<div class="slidecontainer">
+  <input  type="range" min="0" max="100" value="0" class="slider" id="myRange" >
+</div><div><button  id="Temp" onClick="Temp()" value="0" data-bind="value: Percent" >Get Temperature</button>
+ <input id="freak" data-bind="value: Percent">
+ 
+
+   <div class="GaugeMeter" id="PreviewGaugeMeter"  data-bind="gaugeValue: Percent,value: Percent" data-append=" C" data-size=200 data-theme="White" data-width=15 data-style="Arch" data-label="Bedroom" data-animationstep="0" value="0"> 
+ </div>
+
+</center>
+
+</body>
+ <script type='text/javascript' src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+        <script type='text/javascript' src="/static/GaugeMeter.js"></script>
+
+     
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.min.js"></script>
+   <script>
+
+ var socket = io();
+  socket.on('connect', function(){console.log('connected');});
+  socket.on('event', function(data){});
+  socket.on('disconnect', function(){});
+socket.on('client_count', (count) => {
+  console.log('There are ' + count + ' connected clients.');
+});
+
+
+  
+    
+
+
+
+
+
+socket.on('message' ,(message) =>{
+	console.log(message)
+});
+
+function Temp() {
+        socket.emit("Temperature" , "Get Temperature");
+        
+
+      }
+     
+
+socket.on('Temperature', function (neww) {  
+  var myJSON = JSON.stringify(neww);
+  document.getElementById('PreviewGaugeMeter').value = neww;
+  console.log('Temperature '+ neww);
+});
+
+
+
+function LIGHTs() {
+        socket.emit("message", "LIGHTs");
+        
+
+      }
+
+function DOORs() {
+        socket.emit("message", "DOORs");
+        
+
+      }
+
+
+function FANs() {
+        socket.emit("message", "FANs");
+        
+
+      }
+
+
+function ACs() {
+        socket.emit("message", "ACs");
+        
+
+      }
+
+
+function DSKTOs() {
+        socket.emit("message", "DSKTOs");
+        
+
+      }
+
+//turning off button sequence
+
+      function LIGHTsoff() {
+        socket.emit("message", "LIGHTsoff");
+
+      }
+
+function DOORsoff() {
+        socket.emit("message", "DOORsoff");
+
+      }
+
+
+function FANsoff() {
+        socket.emit("message", "FANsoff");
+
+      }
+
+
+function ACsoff() {
+        socket.emit("message", "ACsoff");
+
+      }
+
+
+function DSKTOsoff() {
+        socket.emit("message", "DSKTOsoff");
+      }
+
+
+
+
+
+
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = this.value;
+  socket.emit('pwm', this.value);
+}
+
+
+//Update THE SLIDER value with feedback
+socket.on('pwm', function (pwm) {  
+  var myJSON = JSON.stringify(pwm);
+  document.getElementById('myRange').value = pwm;
+  console.log(pwm)
+});
+
+
+
+// it's not working yet. I still have to make it auto update
+//if you are willing to do i then your welcome
+//Update value with feedback
+socket.on('Temperature', function (neww) {  
+  var myJSON = JSON.stringify(neww);
+  document.getElementById('PreviewGaugeMeter').value = neww;
+  //console.log('Temperature '+ neww);
+});
+ 
+ 
+//Update value with feedback
+socket.on('Temperature', function (neww) {  
+  var myJSON = JSON.stringify(neww);
+  document.getElementById('freak').value = neww;
+  //console.log('Temperature '+ neww);
+});
+
+  $(document).ready(function () {
+
+
+                // Initialize GaugeMeter plugin
+                $(".GaugeMeter").gaugeMeter();
+
+                // Bind new handler to init and update gauges.
+                ko.bindingHandlers.gaugeValue = {
+                    init: function(element, valueAccessor) {
+                        $(element).gaugeMeter({ percent: ko.unwrap(valueAccessor()) });
+                    },
+                    update: function(element, valueAccessor) {
+                        $(element).gaugeMeter({ percent: ko.unwrap(valueAccessor()) });
+                    }
+                };
+
+               
+                // Use observable for easy update.
+
+ 
+                var myViewModel = {
+
+                    Percent: ko.observable(0)
+
+                };
+
+                ko.applyBindings(myViewModel);
+                
+
+            });
+
+
+</script>
+   
+
+ 
+</html>

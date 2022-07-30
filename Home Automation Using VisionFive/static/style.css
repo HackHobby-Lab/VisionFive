@@ -1,0 +1,346 @@
+body {
+
+ background: #141414;
+
+}
+
+
+
+#HomeAutomation {
+  
+
+  font-weight: normal ;
+  font-family:Lucida Console;
+  font-size:40px ;
+   color: #EFD01B;
+   margin-top: 10px ;
+   text-align: center;
+}
+
+
+
+
+.trayon{
+  display: inline-block;
+  background-color: #1B1B1B ;
+  opacity: 50;
+  font-family: 'Oswald', sans-serif ;
+  font-size:20px ;
+  color:  #EFD01B ;
+  padding-left: 1%;
+  padding-right: 1%;
+  position: absolute;
+  left: 35%;
+  top: 35%;
+   transform: translate(-50%, -50%);
+
+}
+
+.trayoff{
+      display: inline-block;
+      background-color: #1B1B1B ;
+      opacity: 50;
+      border: 1px #D62323 ;
+      font-family: 'Oswald', sans-serif ;
+      font-size:20px ;
+      color: #EEEEEE  ;
+      padding-left: 1%;
+      padding-right: 1%;
+      position: absolute; 
+      right: 25%;
+      top: 35%;
+       transform: translate(-50%, -50%);
+
+}
+
+#LIGHTs {
+  
+  border-radius: 10% 10% ;
+  border-color: #F2FFF7;
+  background-color: #1B1B1B;
+  font-family: 'Oswald', sans-serif ;
+  font-size:20px ;
+  color:  #F2FFF7 ;
+
+
+  
+}
+  #LIGHTs:hover {
+   background-color: #F2FFF7;
+  color:  #1B1B1B  ;
+    }
+#DOORs {
+  border-radius: 10% 10% ;
+  border-color: #F2FFF7;
+   background-color: #1B1B1B;
+  font-family: 'Oswald', sans-serif ;
+  font-size:20px ;
+  color:  #F2FFF7 ;
+
+
+} 
+#DOORs:hover {
+  background-color: #F2FFF7;
+    color:  #1B1B1B  ;
+
+    }
+#FANs {
+ border-radius: 10% 10% ;
+  border-color: #F2FFF7;
+   background-color: #1B1B1B;
+  font-family: 'Oswald', sans-serif ;
+  font-size:20px ;
+  color:  #F2FFF7 ;
+
+
+} 
+#FANs:hover {
+  background-color: #F2FFF7;
+    color:  #1B1B1B  ;
+
+    }
+#ACs {
+border-radius: 10% 10% ;
+  border-color: #F2FFF7;
+   background-color: #1B1B1B;
+  font-family: 'Oswald', sans-serif ;
+  font-size:20px ;
+  color:  #F2FFF7 ;
+
+} 
+#ACs:hover {
+  background-color: #F2FFF7;
+    color:  #1B1B1B  ;
+
+    }
+#DSKTOs {
+border-radius: 10% 10% ;
+  border-color: #F2FFF7;
+   background-color: #1B1B1B;
+  font-family: 'Oswald', sans-serif ;
+  font-size:20px ;
+  color:  #F2FFF7 ;
+
+
+
+} 
+#DSKTOs:hover {
+  background-color: #F2FFF7;
+    color:  #1B1B1B  ;
+    }
+
+
+
+
+
+
+
+
+
+#LIGHTsoff {
+  
+  border-radius: 10% 10% ;
+  border-color: #F2FFF7;
+  font-family: 'Oswald', sans-serif ;
+  font-size:20px ;
+  color:  #1B1B1B ;
+
+  
+}
+  #LIGHTsoff:hover {
+  background-color: #1B1B1B ;
+    color:  #EEEEEE  ;
+    }
+#DOORsoff {
+  border-radius: 10% 10% ;
+  border-color: #F2FFF7;
+font-family: 'Oswald', sans-serif ;
+  font-size:20px ;
+  color:  #1B1B1B ;;
+
+
+} 
+#DOORsoff:hover {
+background-color: #1B1B1B ;
+    color:  #EEEEEE  ;
+
+    }
+#FANsoff {
+  border-radius: 10% 10% ;
+  border-color: #F2FFF7;
+font-family: 'Oswald', sans-serif ;
+  font-size:20px ;
+ color:  #1B1B1B ;
+
+
+} 
+#FANsoff:hover {
+background-color: #1B1B1B ;
+    color:  #EEEEEE  ;
+
+    }
+#ACsoff {
+ border-radius: 10% 10% ;
+  border-color: #F2FFF7;
+font-family: 'Oswald', sans-serif ;
+  font-size:20px ;
+  color:  #1B1B1B ;
+
+} 
+#ACsoff:hover {
+ background-color: #1B1B1B ;
+    color:  #EEEEEE  ;
+    }
+#DSKTOsoff {
+ border-radius: 10% 10% ;
+  border-color: #F2FFF7;
+font-family: 'Oswald', sans-serif ;
+  font-size:20px ;
+  color:  #1B1B1B ;
+
+
+} 
+#DSKTOsoff:hover {
+ background-color: #1B1B1B ;
+    color:  #EEEEEE  ;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+.slidecontainer {
+  display: inline-block;
+  width: 40%; 
+   position: absolute;
+right: 15%;
+top: 60%;
+transform: translate(-50%, -50%);
+
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 15px; /* Specified height */
+  background: #EFD01B; 
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; 
+  transition: opacity .2s;
+
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 15px; /* Set a specific slider handle width */
+  height: 15px; /* Slider handle height */
+  background: #1B1B1B; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+
+
+}
+
+
+
+
+
+
+
+.GaugeMeter{
+                Position: Absolute;
+                Text-Align: Center;
+                Overflow: Hidden;
+                Cursor: Default;
+                   position: absolute;
+                    left: 60%;
+                    top: 90%;
+                    transform: translate(-50%, -50%);
+            }
+
+            .GaugeMeter SPAN,
+            .GaugeMeter B{
+                Margin: 0 23%;
+                Width: 54%;
+                Position: Absolute;
+                Text-Align: Center;
+                Display: Inline-Block;
+                Color: RGBa(239,208,27,1);
+                Font-Weight: 100;
+                Font-Family: "Open Sans", Arial;
+                Overflow: Hidden;
+                White-Space: NoWrap;
+                Text-Overflow: Ellipsis;
+
+            }
+            .GaugeMeter[data-style="Semi"] B{
+                Margin: 0 10%;
+                Width: 80%;
+            }
+
+            .GaugeMeter S,
+            .GaugeMeter U{
+                
+                Font-Size: .30em;
+                Font-Weight: 200;
+                Opacity: .6;
+            }
+
+            .GaugeMeter B{
+                Color: Green;
+                Font-Weight: 200;
+                Font-Size: 0.85em;
+                Opacity: 50;
+            }
+
+
+
+
+
+
+
+ HEADER .Preview{
+                Overflow: Auto;
+                Margin-Top: 30px;
+                Display: Inline-Block;
+            }
+
+            HEADER .Preview .GaugeMeter{
+                Margin: 0 10px;
+            }
+/* Style page content */
+.main {
+
+  margin-left: 10%; /* Same as the width of the sidebar */
+  padding: 20px 10px;
+}
+
+
+/* On smaller screens, where height is less than 500px, change the style of the sidebar (less padding and a smaller font size) */
+              @media screen and (max-width: 500px) {
+  
+            .trayon,
+            .trayoff,
+            .GaugePreview
+             {
+                width: 5%;
+                margin-top: 15%;
+}
+.slidecontainer{
+  margin-top: 20%;
+}
